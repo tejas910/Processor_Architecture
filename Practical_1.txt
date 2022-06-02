@@ -1,0 +1,8 @@
+//Simple Addition
+
+#include<xc.h>
+void main(){
+	static int x=5,y=9,sum=0;
+	sum = x+y;
+	PORTD = sum;	
+}

@@ -1,0 +1,60 @@
+//LCD
+
+#include<xc.h>
+#define rs PORTEbits.RE0
+#define rw PORTEbits.RE1
+#define en PORTEbits.RE2
+void LCDCMD(unsigned char x);
+void LCDDATA(unsigned char x);
+void todelay(unsigned int time);
+void main(){
+	ADCON1 = 0x0F;
+	TRISD = 0x00;
+	TRISE = 0x00;
+	LCDCMD(0x01);
+	LCDCMD(0x80);
+	LCDCMD(0x38);
+	LCDCMD(0x0E);
+	LCDCMD(0x06);
+	LCDDATA('P');
+	LCDDATA('V');
+	LCDDATA('G');
+	LCDDATA('C');
+	LCDDATA('O');
+	LCDDATA('E');
+	LCDDATA('T');
+	LCDCMD(0xC0);
+	LCDDATA('P');
+	LCDDATA('U');
+	LCDDATA('N');
+	LCDDATA('E');
+	while(1){
+
+	}
+
+}
+void LCDCMD(unsigned char x){
+	PORTD = x;
+	rs = 0;
+	rw = 0;
+	en = 1;
+	todelay(500);
+	en = 0;
+	todelay(500);
+}
+void LCDDATA(unsigned char x){
+	PORTD = x;
+	rs = 1;
+	rw = 0;
+	en = 1;
+	todelay(500);
+	en = 0;
+	todelay(500);
+}
+
+void todelay(unsigned int time){
+	static int i,j;
+	for(i=0;i<time;i++)
+		for(j=0;j<275;j++);
+		
+}

@@ -1,0 +1,29 @@
+// Serial Communication
+
+#include<xc.h>
+unsigned char string[] = {"PC COMMUNICATION\n\r"};
+
+void txbyte(unsigned char s)
+{
+	while(TXSTAbits.TRMT == 0);
+	TXREG = s;
+}
+
+void txString(unsigned char *str){
+	unsigned int i;
+	for(i=0; str[i]!= '\0'; i++){
+		txbyte(str[i]);
+	}
+}
+
+
+void main(){
+
+		SPBRG = 0x07;
+		SPBRGH = 0x02;
+		TXSTA = 0x24;
+		RCSTA = 0x90;
+		BAUDCON = 0x08;
+		txString(string);	
+
+}	

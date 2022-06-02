@@ -1,0 +1,35 @@
+
+
+// Sorting 
+
+#include<xc.h>
+void main(){
+	static int arr[] = {8,1,4,7,2};
+	static int i.j,temp;
+	for(i=0;i<5;i++){
+		for(j=0;j<5;j++){
+			if(arr[j]<arr[j+1]){ // this logic for descending. 
+				temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+		}
+	}
+}
+
+
+#include<xc.h>
+void main(){
+	static int arr[] = {3,2,4,56,1};
+	static int i,j,temp;
+	for(i=0;i<5;i++){
+		for(j=0;j<5;j++){
+			if(arr[j]>arr[j+1]) // logic for  ascending order.
+			{
+				temp = arr[j];
+				arr[j] = arr[j+1];
+				arr[j+1] = temp;
+			}
+		}
+	}
+}

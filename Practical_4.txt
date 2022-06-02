@@ -1,0 +1,13 @@
+
+
+// Multiplication with addition
+
+#include<xc.h>
+void main(){
+	static int mul=0,x=4,y=5,i;
+	for(i=0;i<y;i++){
+		mul = mul+x;
+	}
+	PORTD = mul;
+
+}

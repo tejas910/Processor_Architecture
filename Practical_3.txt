@@ -1,0 +1,12 @@
+
+// Block transfer
+
+#include<xc.h>
+void main(){
+	static int source[] = {2,3,4,5,6};
+	static int dest[] = {0,0,0,0,0},i;
+	for(i=0;i<5;i++){
+		dest[i] = source[i];
+	}
+
+}
